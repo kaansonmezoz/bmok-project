@@ -26,7 +26,6 @@ public class Gui extends JFrame implements KeyListener {
 
 	private JPanel searchPanel;
     private JTextField searchField;
-    private JTextField urlResult;
     private JScrollPane jScrollPane1;
     private JList<String> searchResults;
 	private JButton searchButton;
@@ -59,7 +58,6 @@ public class Gui extends JFrame implements KeyListener {
 		searchPanel = new JPanel(new BorderLayout());
 
 		searchResults = new JList<String>();
-        urlResult = new JTextField("Url:");
         searchField = new JTextField("Aranacak kelimeleri giriniz");
         jScrollPane1 = new JScrollPane();
 		searchButton = new JButton("Ara");
@@ -88,11 +86,8 @@ public class Gui extends JFrame implements KeyListener {
 
         jScrollPane1.setViewportView(searchResults);
 
-        urlResult.setEditable(false);
-
         searchPanel.add(searchField, BorderLayout.PAGE_START);
 		searchPanel.add(searchResults, BorderLayout.CENTER);
-        searchPanel.add(urlResult, BorderLayout.PAGE_END);
 		searchPanel.add(searchButton, BorderLayout.LINE_END);
 
         createIndexPanel = new JPanel(new BorderLayout());
@@ -178,7 +173,6 @@ public class Gui extends JFrame implements KeyListener {
 					searchResults.removeAll();
 					searchResults.setListData(new String[0]);
 
-					urlResult.setText("Url:");
 					searchField.setText("Aranacak kelimeleri giriniz");
 				}
 
