@@ -1,4 +1,4 @@
-package searchengine;
+package searchengine.model;
 
 
 import java.sql.Connection;

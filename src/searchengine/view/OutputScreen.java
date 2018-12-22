@@ -1,4 +1,4 @@
-package searchengine.View;
+package searchengine.view;
 
 import javax.swing.*;
 import java.awt.*;

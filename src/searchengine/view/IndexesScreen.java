@@ -1,4 +1,4 @@
-package searchengine.View;
+package searchengine.view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,4 +21,7 @@ public class IndexesScreen {
         return screen;
     }
 
+    public JPanel getIndexesPanel(){
+        return indexesPanel;
+    }
 }

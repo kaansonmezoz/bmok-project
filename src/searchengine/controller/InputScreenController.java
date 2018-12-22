@@ -1,7 +1,7 @@
-package searchengine.Controller;
+package searchengine.controller;
 
 import searchengine.Sentence;
-import searchengine.View.SearchScreen;
+import searchengine.view.SearchScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +13,7 @@ public class InputScreenController {
     public InputScreenController(){
 
     }
-
+    /*
     public void addSearchButtonActionListener(){
         SearchScreen screen = SearchScreen.getScreen();
 
@@ -51,7 +51,7 @@ public class InputScreenController {
 
             //searchEngine.listItems();
             searchEngine.sort();
-            /*��kt� sayfas�nda for i�inde print i�lemini buraya yap*/
+            //��kt� sayfas�nda for i�inde print i�lemini buraya yap
             for(int i = 0; i < searchEngine.getCountSort(); i++) {
                 JTextField text3 = new JTextField();
                 text3.setBackground(Color.gray);
@@ -67,4 +67,5 @@ public class InputScreenController {
 
         });
     }
+    */
 }

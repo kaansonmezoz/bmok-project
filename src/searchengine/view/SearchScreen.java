@@ -1,4 +1,4 @@
-package searchengine.View;
+package searchengine.view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,7 +38,7 @@ public class SearchScreen {
 
 
     public JPanel getSearchPanel(){
-        return getSearchPanel();
+        return searchPanel;
     }
 
     public JTextField getSearchField() {

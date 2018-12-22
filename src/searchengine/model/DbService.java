@@ -1,4 +1,7 @@
-package searchengine;
+package searchengine.model;
+
+import searchengine.Sentence;
+import searchengine.ShiftedSentence;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

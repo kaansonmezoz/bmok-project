@@ -1,35 +1,25 @@
+/*
 package searchengine;
 
-import java.awt.*;
-import java.sql.SQLException;
-
-import java.awt.event.KeyListener;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.HashMap;
+import searchengine.model.DbService;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Gui extends JFrame implements KeyListener {
 	DbService dbService = new DbService();
 	static private final String newline = "\n";
 
-	private JPanel createIndexPanel;
-    private JTextField urlField;
-    private JTextField sentenceField;
-    private JButton createButton;
 
-	private JPanel outputPanel;
-	private JPanel urlIndexingPanel;
 
-	private JPanel searchPanel;
-    private JTextField searchField;
-    private JTextField urlResult;
-    private JScrollPane jScrollPane1;
-    private JList<String> searchResults;
-	private JButton searchButton;
+
+
 
 	ArrayList<Sentence> sentenceList;
 
@@ -53,16 +43,9 @@ public class Gui extends JFrame implements KeyListener {
 
 		sentenceList = new ArrayList<Sentence>();
 
-	    setTitle("Metin Indeksleme");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		searchPanel = new JPanel(new BorderLayout());
 
-		searchResults = new JList<String>();
-        urlResult = new JTextField("Url:");
-        searchField = new JTextField("Aranacak kelimeleri giriniz");
-        jScrollPane1 = new JScrollPane();
-		searchButton = new JButton("Ara");
+
 
 
 		searchButton.addActionListener( e -> {
@@ -86,86 +69,13 @@ public class Gui extends JFrame implements KeyListener {
 			searchResults.setListData(contents.toArray(new String[0]));
 		});
 
-        jScrollPane1.setViewportView(searchResults);
-
-        urlResult.setEditable(false);
-
-        searchPanel.add(searchField, BorderLayout.PAGE_START);
-		searchPanel.add(searchResults, BorderLayout.CENTER);
-        searchPanel.add(urlResult, BorderLayout.PAGE_END);
-		searchPanel.add(searchButton, BorderLayout.LINE_END);
-
-        createIndexPanel = new JPanel(new BorderLayout());
-
-        urlField = new JTextField("Url giriniz");
-        sentenceField = new JTextField("Metin giriniz");
-        createButton = new JButton("olustur");
-
-        JTabbedPane tappedPane = new JTabbedPane();
-
-        createIndexPanel.add(urlField,BorderLayout.PAGE_START);
-        createIndexPanel.add(sentenceField,BorderLayout.CENTER);
-        createIndexPanel.add(createButton,BorderLayout.PAGE_END);
-
-        outputPanel = new JPanel();
-        outputPanel.setLayout(new GridLayout(20,1));
-
-        urlIndexingPanel = new JPanel();
-        urlIndexingPanel.setLayout(new GridLayout(20,1));
-
-	     createButton.addActionListener(e -> {
-	     	sentenceList = new ArrayList<Sentence>();
-
-			 outputPanel.removeAll(); // Cikti ekrani temizlenir
-
-	     	String url = urlField.getText();
-			 fullSentence = sentenceField.getText();
-				String [] parts = fullSentence.split("\\."); // Burada noktayı kaldırıyorlar. Onun yerine tüm punctutationlar kaldırılmalı.
-				//System.out.println(String.join(" ", parts));
-				for(int i = 0; i < parts.length; i++) {
-					String[] words = parts[i].split("\\s+"); // cumleyi kelime kelime ayırıyorlar.
-					for (int j = 0; j< words.length; j++) {
-						// You may want to check for a non-word character before blindly
-						// performing a replacement
-						// It may also be necessary to adjust the character class
-						words[j] = words[j].replaceAll("[^\\w]", "");
-					}
-					Sentence wordiex = new Sentence(words, url);
-					try{
-						int content_id = dbService.saveFullSentence(wordiex);
-						dbService.saveShiftedSentences(wordiex.getShiftedSentences(), content_id);
-					}catch(SQLException exception){ //Eğer bu hata yenirse db de eklenemedi tarzından uyarı verilecek. ama sistem çaısmaya devam edecek
-						exception.printStackTrace();
-					}
-					sentenceList.add(wordiex);
-				}
 
 
-				for(int i = 0; i < sentenceList.size(); i++) {
-				    searchEngine.addSentence(sentenceList.get(i));
-				}
 
-				//searchEngine.listItems();
-                searchEngine.sort();
-				/*��kt� sayfas�nda for i�inde print i�lemini buraya yap*/
-				for(int i = 0; i < searchEngine.getCountSort(); i++) {
-				    JTextField text3 = new JTextField();
-				    text3.setBackground(Color.gray);
-				    text3.setText("Index: " + searchEngine.getIndex(i) + " Url: " + url);
-				    text3.setEditable(false);
 
-                    outputPanel.add(text3);
-                    outputPanel.revalidate();
-                    outputPanel.repaint();
-				}
 
-				searchEngine.clearAllFields(); // searcEngine'i countsort ve count degiskenlerinden kurtarırsak buna gerek kalmayabilir gerci arraylistlerini gene temizlememiz gerek o yüzden bu gerekli
-			});
 
-		tappedPane.add(searchPanel, "Arama");
-		tappedPane.add(createIndexPanel,"Metin Girisi");
-		tappedPane.add(outputPanel,"Cıktı");
-		tappedPane.add(urlIndexingPanel,"Index goruntuleme");
+
 
 		tappedPane.addChangeListener(new ChangeListener() {
 			@Override
@@ -211,7 +121,7 @@ public class Gui extends JFrame implements KeyListener {
 			}
 		});
 
-		add(tappedPane);
+
 
 		//TODO: Noktalama isaretlerinden sadece
 		//TODO: Çıktı kümesi kendi içinde değil sadece diğer kümeler ile de alfabetik olarak sıralanmali
@@ -247,3 +157,4 @@ public class Gui extends JFrame implements KeyListener {
 
 	}
 }
+*/

@@ -1,4 +1,4 @@
-package searchengine.Controller;
+package searchengine.controller;
 
 public class SearchScreenController {
 }

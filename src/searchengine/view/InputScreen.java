@@ -1,4 +1,4 @@
-package searchengine.View;
+package searchengine.view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +16,10 @@ public class InputScreen {
         urlField = new JTextField("Url giriniz");
         sentenceField = new JTextField("Metin giriniz");
         createButton = new JButton("olustur");
+
+        inputPanel.add(urlField,BorderLayout.PAGE_START);
+        inputPanel.add(sentenceField,BorderLayout.CENTER);
+        inputPanel.add(createButton,BorderLayout.PAGE_END);
     }
 
     public static InputScreen getScreen(){

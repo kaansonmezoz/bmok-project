@@ -1,5 +1,7 @@
 package searchengine;
 
+import searchengine.model.DbService;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
