@@ -11,14 +11,16 @@ public abstract class Utility {
         ArrayList<String> stopWordsList = new ArrayList<>(Arrays.asList(stopWords));
 
         for(int i = 0; i < words.size(); i++){
+            System.out.println("removeStopWords " + words.get(i));
+            System.out.println(stopWordsList.indexOf(words.get(i)) != -1);
             if(stopWordsList.indexOf(words.get(i)) != -1){
                 words.remove(i);
             }
         }
     }
 
-    public static void clearPunctionMarks(ArrayList<String> words){
-        String[] punctionMarks = new String[]{",", ".", "!", "?", ":", "\"", ";", "-"};
+    public static void clearPunctionMarks(ArrayList<String> words){ //TODO: burada bir hata var
+        String[] punctionMarks = new String[]{",", ".", "!", "\\?", ":", "\"", ";", "-", "'"};
 
         for(int i = 0; i < words.size(); i++){
             for(int j = 0; j < punctionMarks.length; j++){

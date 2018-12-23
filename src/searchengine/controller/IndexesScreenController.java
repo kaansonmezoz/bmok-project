@@ -16,6 +16,8 @@ public class IndexesScreenController {
     }
 
     private void addOutputText(String output){
+        System.out.println(output.length());
+
         JTextField text4 = new JTextField();
         text4.setBackground(Color.gray);
         text4.setText(output);
@@ -24,7 +26,6 @@ public class IndexesScreenController {
         screen.getIndexesPanel().add(text4);
         screen.getIndexesPanel().revalidate();
         screen.getIndexesPanel().repaint();
-
     }
 
     public void outputAllIndexesWithUrl(){
@@ -34,7 +35,7 @@ public class IndexesScreenController {
             return;
         }
 
-        for(int i= 0 ; i < outputList.size(); i++) {
+        for(int i = 0 ; i < outputList.size(); i++) {
             addOutputText(outputList.get(i));
         }
     }

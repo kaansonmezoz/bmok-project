@@ -10,29 +10,23 @@ import java.util.ArrayList;
 public class Indexes {
     private DbManager dbManager;
 
-    private int id;
-    private String processed_content;
-    private int orig_content_id;
-    private String target_word;
-    private float point;
-
     public Indexes(){
         dbManager = DbManager.getDbManager();
     }
 
     public void saveShiftedSentences(ArrayList<ShiftedSentence> sentences, int content_id) throws  SQLException{
         String query = "INSERT INTO `Indexes` (`processed_content`, `target_word`, `point`, `orig_content_id`) " +
-                "VALUES (?, ?, ?)";
+                "VALUES (?, ?, ?, ?)";
 
         PreparedStatement statement = dbManager.prepareStatement(query);
 
-        for(ShiftedSentence index: sentences){
-            statement.setString(1, index.getProcessedSentence());
-            statement.setString(2, index.getProcessedSentence().split(" ")[0]);
-            statement.setFloat(3, index.getScore());
+        for(int i = 0; i < sentences.size(); i++){
+            statement.setString(1, sentences.get(i).getProcessedSentence());
+            statement.setString(2, sentences.get(i).getProcessedSentence().split(" ")[0]);
+            statement.setFloat(3, sentences.get(i).getScore());
             statement.setInt(4, content_id);
 
-            ResultSet result = dbManager.executeOperation(statement);
+            dbManager.executeOperation(statement);
         }
     }
 

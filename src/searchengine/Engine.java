@@ -11,23 +11,21 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class Engine {
-	private ArrayList<Sentence> sentences;
-    private ArrayList<String> sorted;
-
-	private int count;
-	private int countsort;
 
 	public Engine() {
-        sentences = new ArrayList<Sentence>();
-		sorted = new ArrayList<String>();
-        count = 0;
-		countsort = 0;
+
 	}
 
 	public Sentence createIndex(String url, String fullSentence){
 		ArrayList<String> words = getIndexWords(fullSentence);
 
+        System.out.println("Words: ");
+        System.out.println(String.join("\n", words.toArray(new String[0])));
+
         ArrayList<ShiftedSentence> shiftedSentence = shiftSentence(words);
+
+        System.out.println("Shifted: ");
+        System.out.println(shiftedSentence.get(2).getProcessedSentence());
 
         return new Sentence(words.size(), url, shiftedSentence, fullSentence);
 	}
@@ -38,7 +36,7 @@ public class Engine {
 	    ArrayList<String> indexWords = new ArrayList<String>(Arrays.asList(words));
 
 	    Utility.removeStopWords(indexWords);
-        Utility.clearPunctionMarks(indexWords);
+        //Utility.clearPunctionMarks(indexWords);
 
         return indexWords;
     }
@@ -47,12 +45,18 @@ public class Engine {
         ArrayList<ShiftedSentence> sentences = new ArrayList<ShiftedSentence>();
 
         for(int i = 0; i < words.size(); i++){
-            ShiftedSentence shifted = new ShiftedSentence(String.join(" ", words), calculateScore(i, words.size()));
+            ShiftedSentence shifted = new ShiftedSentence(String.join(" ", words.toArray(new String[0])), calculateScore(i, words.size()));
 
             sentences.add(shifted);
-            words = shiftSentenceLeft(words);
-        }
+            System.out.println("Before shifting: " + String.join(" ", words.toArray(new String[0])));
 
+            words = shiftSentenceLeft(words);
+            System.out.println("After shifting: " + String.join(" ", words.toArray(new String[0])));
+
+            System.out.println("--> : " + sentences.get(i).getProcessedSentence());
+        }
+        for(int i = 0; i < words.size(); i++)
+            System.out.println(sentences.get(i).getProcessedSentence());
         return sentences;
     }
 

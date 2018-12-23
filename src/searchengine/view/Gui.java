@@ -23,7 +23,7 @@ public class Gui extends JFrame{
         setTitle("Metin Indeksleme");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JTabbedPane tappedPane = new JTabbedPane();
+        tappedPane = new JTabbedPane();
 
         initScreens();
 
@@ -33,6 +33,8 @@ public class Gui extends JFrame{
         tappedPane.add(indexesScreen.getIndexesPanel(),"Index goruntuleme");
 
         add(tappedPane);
+
+        addTappedPaneOnChange();
     }
 
     private void initScreens(){

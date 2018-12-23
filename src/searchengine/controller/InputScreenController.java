@@ -35,7 +35,11 @@ public class InputScreenController {
 
             Engine engine = new Engine();
 
+            System.out.println("Url: " + url + " Metin: " + fullSentence);
+
             Sentence processedSentence = engine.createIndex(url, fullSentence);
+
+            System.out.println(processedSentence.getShiftedSentences());
 
             saveInput(processedSentence);
 
@@ -59,6 +63,7 @@ public class InputScreenController {
         Contents contentsModel = new Contents();
 
         try{
+            System.out.println(sentence.getShiftedSentences().get(0).getProcessedSentence());
             int content_id = contentsModel.saveContent(sentence);
             indexesModel.saveShiftedSentences(sentence.getShiftedSentences(), content_id);
         }

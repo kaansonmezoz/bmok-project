@@ -3,6 +3,8 @@ package searchengine.model;
 
 import java.sql.*;
 
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
+
 
 public class DbManager {
 
@@ -59,7 +61,7 @@ public class DbManager {
         ResultSet resultSet = null;
         try{
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.executeUpdate(query, RETURN_GENERATED_KEYS);
             resultSet = stmt.getGeneratedKeys();
         }
         catch(Exception e){
@@ -82,7 +84,7 @@ public class DbManager {
 
 
     public PreparedStatement prepareStatement(String query) throws SQLException{
-        return conn.prepareStatement(query);
+        return conn.prepareStatement(query, RETURN_GENERATED_KEYS);
     }
 
     public Connection getConn() {
