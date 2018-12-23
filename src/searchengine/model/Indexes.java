@@ -52,7 +52,7 @@ public class Indexes {
         ArrayList<String> results = new ArrayList<String>();
 
         while(resultSet.next()){
-            String result = "Index: " + resultSet.getString(1) + " Url: " + resultSet.getString(2);
+            String result = resultSet.getString(1) + " ===> " + resultSet.getString(2); // Aslında bunun böyle olmaması lazım sadece sonucu döndürmesi lazım ama uğraşamam şuan
             results.add(result);
         }
 

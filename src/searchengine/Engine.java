@@ -67,33 +67,4 @@ public class Engine {
 
 	    return shifted;
     }
-
-	public ArrayList<String> getAllIndexesWithUrl(){
-		DbService db = new DbService();
-
-		ArrayList<String> indexes = null;
-
-		try{
-			indexes = db.getAllIndexesWithUrl();
-		}catch(SQLException e){
-			e.printStackTrace();
-		}
-
-		return indexes;
-	}
-	
-	public String getIndex(int i) {
-		return sorted.get(i);
-	}
-
-	public int getCountSort() {
-		return countsort;
-	}
-
-	public void clearAllFields(){
-	    sentences = new ArrayList<Sentence>();
-	    sorted = new ArrayList<String>();
-	    count = 0;
-	    countsort = 0;
-    }
 }

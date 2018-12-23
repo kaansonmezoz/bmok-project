@@ -16,9 +16,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class InputScreenController {
+    private InputScreen screen;
 
     public InputScreenController(){
-
+        screen = InputScreen.getScreen();
     }
 
     public void addSearchButtonActionListener(){
@@ -65,5 +66,10 @@ public class InputScreenController {
             e.printStackTrace();
         }
 
+    }
+
+    public void clearScreen(){
+        screen.getUrlField().setText("Url giriniz");
+        screen.getSentenceField().setText("Metin giriniz");
     }
 }

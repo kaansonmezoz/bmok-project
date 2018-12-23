@@ -3,91 +3,14 @@ package searchengine;
 import searchengine.model.DbService;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Gui extends JFrame implements KeyListener {
-	DbService dbService = new DbService();
-	static private final String newline = "\n";
-
-
-
-
-
-
-	ArrayList<Sentence> sentenceList;
-
-	static String fullSentence="";
 
 	public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-			try {
-				Gui frame = new Gui();
-				frame.setSize(1500, 600);
-				frame.setVisible(true);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
 	}
-
-	public Gui() {
-		Engine searchEngine = new Engine();
-
-		sentenceList = new ArrayList<Sentence>();
-
-
-		tappedPane.addChangeListener(new ChangeListener() {
-			@Override
-			public void stateChanged(ChangeEvent e) { // burada tablar arasında geçiş yapıldığında verilerin silinme islemi yapilmasi gerekiyor
-				String activeTabTitle = tappedPane.getTitleAt(tappedPane.getSelectedIndex());
-
-				System.out.println(activeTabTitle);
-				// Search Ekranı temizleniyor
-				if(activeTabTitle != tappedPane.getTitleAt(0)){
-					searchResults.removeAll();
-					searchResults.setListData(new String[0]);
-
-					urlResult.setText("Url:");
-					searchField.setText("Aranacak kelimeleri giriniz");
-				}
-
-				if(activeTabTitle != tappedPane.getTitleAt(1)) { // Index olusturma ekranını baslangica dondurmek icin
-					urlField.setText("Url giriniz");
-					sentenceField.setText("Metin giriniz");
-				}
-
-				if(activeTabTitle == tappedPane.getTitleAt(3)){ // Index goruntuleme ekrani
-					ArrayList<String> outputList = searchEngine.getAllIndexesWithUrl();
-
-					urlIndexingPanel.removeAll();
-
-					if(outputList == null){
-						return;
-					}
-
-
-					for(int i= 0 ; i < outputList.size(); i++) {
-				    	JTextField text4 = new JTextField();
-				    	text4.setBackground(Color.gray);
-				    	text4.setText(outputList.get(i));
-                    	text4.setEditable(false);
-
-				    	urlIndexingPanel.add(text4);
-                    	urlIndexingPanel.revalidate();
-                    	urlIndexingPanel.repaint();
-					}
-				}
-			}
-		});
-
-
 
 		//TODO: Noktalama isaretlerinden sadece
 		//TODO: Çıktı kümesi kendi içinde değil sadece diğer kümeler ile de alfabetik olarak sıralanmali
@@ -106,7 +29,6 @@ public class Gui extends JFrame implements KeyListener {
 		// Index goruntuleme ekrani her daim temizlenmeden kalir ilk program acilinca ilklenir ve icerigi olusturulur ardindan sadece yeni veriler eklenir oraya
 		// ayrica scroll edilme ozelligi eklenirse guzel durur o tab icin.
 		// cikti ekraninda ise sadece en basindan beri olan veriler deil de en sonda olan veriler olmali ve bu ekran sadece icerik olarak butona basilinca olusturulmali metin girisindeki butona
-	}
 
 	@Override
 	public void keyTyped(KeyEvent keyEvent) {

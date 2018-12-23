@@ -48,4 +48,10 @@ public class SearchScreenController {
 
         return results;
     }
+
+    public void clearScreen(){
+        screen.getSearchResults().setListData(new String[0]);
+
+        screen.getSearchField().setText("Aranacak kelimeleri giriniz");
+    }
 }

@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 //TODO: aslında screenler en ustte bir base classi extend etse abstract bir classi nihayetinde alayinda constructor calisacak ortak olan ise getScreen() tarzinda bir metod var polymorphism yapıbilir belki de bu sayede daha mantıklı bir cikarim yapılabilir genelleştirilebilecek ne gibi özellikleri var bilmiyorum ama
 public class SearchScreen {
-    private SearchScreenController controller;
 
     private static SearchScreen searchScreen;
     private JPanel searchPanel;
@@ -30,9 +29,6 @@ public class SearchScreen {
         searchPanel.add(searchField, BorderLayout.PAGE_START);
         searchPanel.add(searchResults, BorderLayout.CENTER);
         searchPanel.add(searchButton, BorderLayout.LINE_END);
-
-        controller = new SearchScreenController();
-        controller.addSearchButtonActionListener();
     }
 
     public static SearchScreen getScreen(){

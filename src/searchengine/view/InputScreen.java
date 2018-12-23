@@ -8,8 +8,6 @@ import java.awt.*;
 public class InputScreen {
     private static InputScreen screen;
 
-    private InputScreenController controller;
-
     private JPanel inputPanel;
     private JTextField urlField;
     private JTextField sentenceField;
@@ -24,9 +22,6 @@ public class InputScreen {
         inputPanel.add(urlField,BorderLayout.PAGE_START);
         inputPanel.add(sentenceField,BorderLayout.CENTER);
         inputPanel.add(createButton,BorderLayout.PAGE_END);
-
-        controller = new InputScreenController();
-        controller.addSearchButtonActionListener();
     }
 
     public static InputScreen getScreen(){
