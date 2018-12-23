@@ -1,118 +1,74 @@
 package searchengine;
 
+import searchengine.controller.OutputScreenController;
+import searchengine.model.DbService;
+
+import javax.swing.*;
+import java.awt.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Engine {
-	private ArrayList<Sentence> sentences;
-    private ArrayList<String> sorted;
-
-	private int count;
-	private int countsort;
 
 	public Engine() {
-        sentences = new ArrayList<Sentence>();
-		sorted = new ArrayList<String>();
-        count = 0;
-		countsort = 0;
+
 	}
 
-	public void sortArrayCreate() {
-	    for(int i = 0; i < count; i++) {
-			for(int j = 0; j < sentences.get(i).getWordCount(); j++) {
-				sorted.add("");
-				sorted.set(countsort, sorted.get(countsort).concat(sentences.get(i).getShiftedSentence(j)));
-				countsort++;
-			}
-		}
-		
+	public Sentence createIndex(String url, String fullSentence){
+		ArrayList<String> words = getIndexWords(fullSentence);
+
+        System.out.println("Words: ");
+        System.out.println(String.join("\n", words.toArray(new String[0])));
+
+        ArrayList<ShiftedSentence> shiftedSentence = shiftSentence(words);
+
+        System.out.println("Shifted: ");
+        System.out.println(shiftedSentence.get(2).getProcessedSentence());
+
+        return new Sentence(words.size(), url, shiftedSentence, fullSentence);
 	}
-	public void sort() {
-		sortArrayCreate();
-		char temp[] = new char[countsort];
+	//TODO: şuanda indeksler oluşturuldu bunnlar bir db'ye kaydedilmeli ve ekrana basilmali bir tek buralar kaldi
 
-		for(int i = 0; i < countsort; i++) {
-			temp[i] = sorted.get(i).toLowerCase().charAt(1);
-		}
+	private ArrayList<String> getIndexWords(String fullSentence){
+        String[] words =  fullSentence.split(" ");
+	    ArrayList<String> indexWords = new ArrayList<String>(Arrays.asList(words));
 
-		int n = countsort;
-		  
-		// One by one move boundary of unsorted subarray
-		for (int i = 0; i < n-1; i++) {
-			// Find the minimum element in unsorted array
-			int min_idx = i;
+	    indexWords = Utility.removeStopWords(indexWords);
+        Utility.clearPunctionMarks(indexWords);
 
-			for (int j = i+1; j < n; j++) {
-				int s = temp[j];
-				int o = temp[min_idx];
-		            	
-				if (s < o) {
-					min_idx = j;
-				}
-			}
+        return indexWords;
+    }
 
-			// Swap the found minimum element with the first
-			// element
-			char temp2 = temp[min_idx];
+    private ArrayList<ShiftedSentence> shiftSentence(ArrayList<String> words){
+        ArrayList<ShiftedSentence> sentences = new ArrayList<ShiftedSentence>();
 
-			temp[min_idx] =temp[i];
-			temp[i] = temp2;
-		            
-			String temp3 = sorted.get(min_idx);
+        for(int i = 0; i < words.size(); i++){
+            ShiftedSentence shifted = new ShiftedSentence(String.join(" ", words.toArray(new String[0])), calculateScore(i, words.size()));
 
-            sorted.set(min_idx, sorted.get(i));
-            sorted.set(i, temp3);
-		}
-	}
-	
-	public void addSentence(Sentence  sentencex) {
-		sentences.add(sentencex);
-		count++;
-	}
-	
-	public HashMap<String, ArrayList<String>> searchUrl(String searchSentence) {
-        String[] words = searchSentence.split(" ");
+            sentences.add(shifted);
+            System.out.println("Before shifting: " + String.join(" ", words.toArray(new String[0])));
 
-        DbService db = new DbService();
+            words = shiftSentenceLeft(words);
+            System.out.println("After shifting: " + String.join(" ", words.toArray(new String[0])));
 
-        HashMap<String, ArrayList<String>> searchResult = null;
-
-        try{
-            searchResult = db.searchUrlBySentence(words);
-        }catch(SQLException e){
-            e.printStackTrace();
+            System.out.println("--> : " + sentences.get(i).getProcessedSentence());
         }
+        for(int i = 0; i < words.size(); i++)
+            System.out.println(sentences.get(i).getProcessedSentence());
+        return sentences;
+    }
 
-        return searchResult;
-	}
+    private float calculateScore(int shiftNo, int wordLength){
+	    return (float)1 / (wordLength * (shiftNo + 1));
+    }
 
-	public ArrayList<String> getAllIndexesWithUrl(){
-		DbService db = new DbService();
+    private ArrayList<String> shiftSentenceLeft(ArrayList<String> words){
+	    ArrayList<String> shifted = new ArrayList<String>(words);
 
-		ArrayList<String> indexes = null;
+	    shifted.add(shifted.remove(0));
 
-		try{
-			indexes = db.getAllIndexesWithUrl();
-		}catch(SQLException e){
-			e.printStackTrace();
-		}
-
-		return indexes;
-	}
-	
-	public String getIndex(int i) {
-		return sorted.get(i);
-	}
-
-	public int getCountSort() {
-		return countsort;
-	}
-
-	public void clearAllFields(){
-	    sentences = new ArrayList<Sentence>();
-	    sorted = new ArrayList<String>();
-	    count = 0;
-	    countsort = 0;
+	    return shifted;
     }
 }
