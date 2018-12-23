@@ -1,4 +1,3 @@
-/*
 package searchengine;
 
 import searchengine.model.DbService;
@@ -157,4 +156,3 @@ public class Gui extends JFrame implements KeyListener {
 
 	}
 }
-*/
