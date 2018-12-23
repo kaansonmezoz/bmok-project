@@ -1,5 +1,7 @@
 package searchengine.view;
 
+import searchengine.controller.OutputScreenController;
+
 import javax.swing.*;
 import java.awt.*;
 

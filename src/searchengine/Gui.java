@@ -43,39 +43,6 @@ public class Gui extends JFrame implements KeyListener {
 		sentenceList = new ArrayList<Sentence>();
 
 
-
-
-
-
-		searchButton.addActionListener( e -> {
-			String searchSentence = searchField.getText().toString();
-
-			HashMap<String, ArrayList<String>> searchResult = searchEngine.searchUrl(searchSentence);
-
-			if(searchResult == null){
-				return;
-			}
-
-			ArrayList<String> urls = searchResult.get("url");
-			ArrayList<String> contents = searchResult.get("content");
-
-			for(int i = 0; i < urls.size(); i++){
-				contents.set(i, "Content: " + contents.get(i) + " Url: " + urls.get(i));
-				System.out.println(contents.get(i));
-			}
-
-			searchResults.removeAll();
-			searchResults.setListData(contents.toArray(new String[0]));
-		});
-
-
-
-
-
-
-
-
-
 		tappedPane.addChangeListener(new ChangeListener() {
 			@Override
 			public void stateChanged(ChangeEvent e) { // burada tablar arasında geçiş yapıldığında verilerin silinme islemi yapilmasi gerekiyor

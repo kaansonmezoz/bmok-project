@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Contents {
@@ -38,7 +39,7 @@ public class Contents {
     }
 
     //TODO: HashMap degil obje dondurmek lazim aslinda
-    public HashMap<String, ArrayList<String>> searchUrlBySentence(String[] words) throws SQLException{
+    public ArrayList<String> searchUrlBySentence(String[] words) throws SQLException{
         if (words.length == 0) {
             return null;
         }
@@ -62,17 +63,13 @@ public class Contents {
             e.printStackTrace();
         }
 
-        HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>();
-        result.put("total", new ArrayList<String>());
-        result.put("content", new ArrayList<String>());
-        result.put("url", new ArrayList<String>());
+        ArrayList<String> resultOutput = new ArrayList<String>();
 
         while (resultSet.next()) {
-            result.get("total").add(resultSet.getString(1));
-            result.get("content").add(resultSet.getString(2));
-            result.get("url").add(resultSet.getString(3));
+            resultOutput.add(resultSet.getString(2) + " ===> " + resultSet.getString(3));
         }
 
-        return result;
+        return resultOutput;
     }
+
 }

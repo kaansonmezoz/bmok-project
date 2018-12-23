@@ -30,4 +30,6 @@ public class OutputScreenController {
         outputPanel.revalidate();
         outputPanel.repaint();
     }
+
+    public 
 }
