@@ -35,8 +35,8 @@ public class Engine {
         String[] words =  fullSentence.split(" ");
 	    ArrayList<String> indexWords = new ArrayList<String>(Arrays.asList(words));
 
-	    Utility.removeStopWords(indexWords);
-        //Utility.clearPunctionMarks(indexWords);
+	    indexWords = Utility.removeStopWords(indexWords);
+        Utility.clearPunctionMarks(indexWords);
 
         return indexWords;
     }

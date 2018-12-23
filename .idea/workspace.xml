@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1833b4c1-5d64-4bda-8ec4-4e99f0b3fdb2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/bmok-project/searchengine/controller/IndexesScreenController.class" afterPath="$PROJECT_DIR$/out/production/bmok-project/searchengine/controller/IndexesScreenController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/bmok-project/searchengine/model/Indexes.class" afterPath="$PROJECT_DIR$/out/production/bmok-project/searchengine/model/Indexes.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/bmok-project/searchengine/view/Gui$1.class" afterPath="$PROJECT_DIR$/out/production/bmok-project/searchengine/view/Gui$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/bmok-project/searchengine/view/Gui.class" afterPath="$PROJECT_DIR$/out/production/bmok-project/searchengine/view/Gui.class" />
       <change beforePath="$PROJECT_DIR$/src/searchengine/Engine.java" afterPath="$PROJECT_DIR$/src/searchengine/Engine.java" />
       <change beforePath="$PROJECT_DIR$/src/searchengine/Utility.java" afterPath="$PROJECT_DIR$/src/searchengine/Utility.java" />
-      <change beforePath="$PROJECT_DIR$/src/searchengine/controller/IndexesScreenController.java" afterPath="$PROJECT_DIR$/src/searchengine/controller/IndexesScreenController.java" />
-      <change beforePath="$PROJECT_DIR$/src/searchengine/controller/InputScreenController.java" afterPath="$PROJECT_DIR$/src/searchengine/controller/InputScreenController.java" />
-      <change beforePath="$PROJECT_DIR$/src/searchengine/model/DbManager.java" afterPath="$PROJECT_DIR$/src/searchengine/model/DbManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/searchengine/model/Indexes.java" afterPath="$PROJECT_DIR$/src/searchengine/model/Indexes.java" />
-      <change beforePath="$PROJECT_DIR$/src/searchengine/view/Gui.java" afterPath="$PROJECT_DIR$/src/searchengine/view/Gui.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,18 +31,18 @@
       <file leaf-file-name="Contents.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/searchengine/model/Contents.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1100">
+            <state relative-caret-position="244">
               <caret line="68" column="62" lean-forward="false" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Engine.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Engine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/searchengine/Engine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-242">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="402">
+              <caret line="37" column="19" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -70,12 +60,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Indexes.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Indexes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/searchengine/model/Indexes.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="248">
               <caret line="24" column="48" lean-forward="true" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utility.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/searchengine/Utility.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+              <folding>
+                <element signature="e#412#420#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,10 +147,10 @@
         <option value="$PROJECT_DIR$/src/searchengine/controller/IndexesScreenController.java" />
         <option value="$PROJECT_DIR$/src/searchengine/view/Gui.java" />
         <option value="$PROJECT_DIR$/src/searchengine/model/DbManager.java" />
-        <option value="$PROJECT_DIR$/src/searchengine/Utility.java" />
-        <option value="$PROJECT_DIR$/src/searchengine/Engine.java" />
         <option value="$PROJECT_DIR$/src/searchengine/controller/InputScreenController.java" />
         <option value="$PROJECT_DIR$/src/searchengine/model/Indexes.java" />
+        <option value="$PROJECT_DIR$/src/searchengine/Utility.java" />
+        <option value="$PROJECT_DIR$/src/searchengine/Engine.java" />
       </list>
     </option>
   </component>
@@ -396,12 +398,12 @@
       <option name="presentableId" value="Default" />
       <updated>1545489000920</updated>
       <workItem from="1545489002819" duration="5392000" />
-      <workItem from="1545494616762" duration="25735000" />
+      <workItem from="1545494616762" duration="26403000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31127000" />
+    <option name="totallyTimeSpent" value="31795000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -509,10 +511,10 @@
           <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
           <folding>
             <element signature="e#1102#1110#0" expanded="false" />
-            <element signature="e#1401#1418#0" expanded="false" />
-            <element signature="e#2205#2206#0" expanded="false" />
-            <element signature="e#2264#2265#0" expanded="false" />
-            <element signature="e#2387#2395#0" expanded="false" />
+            <element signature="e#1412#1429#0" expanded="false" />
+            <element signature="e#2216#2217#0" expanded="false" />
+            <element signature="e#2275#2276#0" expanded="false" />
+            <element signature="e#2398#2406#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -663,22 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/searchengine/Utility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/searchengine/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/searchengine/controller/IndexesScreenController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-790">
@@ -702,6 +688,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/searchengine/model/DbManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-152">
+          <caret line="67" column="32" lean-forward="true" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/searchengine/controller/InputScreenController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -713,20 +709,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/searchengine/model/Contents.java">
+    <entry file="file://$PROJECT_DIR$/src/searchengine/Utility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="68" column="62" lean-forward="false" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/searchengine/model/DbManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-152">
-          <caret line="67" column="32" lean-forward="true" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+        <state relative-caret-position="24">
+          <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#412#420#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -735,6 +723,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="24" column="48" lean-forward="true" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/searchengine/model/Contents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="68" column="62" lean-forward="false" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/searchengine/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="37" column="19" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
           <folding />
         </state>
       </provider>
